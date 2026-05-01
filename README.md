@@ -25,6 +25,9 @@ project/
 └── deploy.sh
 ```
 
+In deployments directory:
+
+```bash
 docker compose -f docker-compose.infrastructure.yml up -d
-while ! docker logs vault-init 2>&1 | grep -q "Vault configured"; do sleep 2; done
-docker compose -f docker-compose.apps.yml up -d --build
+docker compose -f docker-compose.apps.dev.yml up -d
+```
