@@ -15,20 +15,19 @@ services:
       - -config=/vault/config/agent.hcl
     networks:
       - vault_network
-  
-  #  orders-api:
-  #    image: orders-api:latest
-  #    build:
-  #      context: .                          # Root of the project
-  #      dockerfile: src/OrdersApi/Dockerfile  # Path to Dockerfile relative to context
-  #    volumes:
-  #      - secrets_orders:/vault/secrets:ro
-  #    ports:
-  #      - "5001:8080"
-  #    networks:
-  #      - vault_network
-  #    depends_on:
-  #      - vault-agent-orders
+  # orders-api:
+  #   image: orders-api:latest
+  #   build:
+  #     context: .. # Root of the project
+  #     dockerfile: services/OrdersApi/Dockerfile # Path to Dockerfile relative to context
+  #   volumes:
+  #     - secrets_orders:/vault/secrets:ro
+  #   ports:
+  #     - "5001:8080"
+  #   networks:
+  #     - vault_network
+  #   depends_on:
+  #     - vault-agent-orders
 
   vault-agent-users:
     image: hashicorp/vault:latest
@@ -49,8 +48,8 @@ services:
 #  users-api:
 #    image: users-api:latest
 #    build:
-#      context: .                          # Root of the project
-#      dockerfile: src/UsersApi/Dockerfile  # Path to Dockerfile relative to context
+#      context: ..                          # Root of the project
+#      dockerfile: services/UsersApi/Dockerfile  # Path to Dockerfile relative to context
 #    volumes:
 #      - secrets_users:/vault/secrets:ro
 #    ports:
